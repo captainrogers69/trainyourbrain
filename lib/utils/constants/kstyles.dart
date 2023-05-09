@@ -49,6 +49,7 @@ class Kstyles {
   static const kVerySmallTextStyle = TextStyle(
       fontWeight: FontWeight.w400,
       fontStyle: FontStyle.normal,
+      color: KColors.blackColor,
       fontSize: 11,
       letterSpacing: 0.0105);
 

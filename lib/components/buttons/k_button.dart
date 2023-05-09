@@ -12,12 +12,18 @@ class KButton extends StatelessWidget {
   final double? width, height;
   final VoidCallback? onTap;
   final String buttonName;
-  final bool useRed, useGreen, useRoundCorner, useMidRoundCorner, useGrey;
+  final bool useRed,
+      useGreen,
+      useCircularCorner,
+      useRoundCorner,
+      useMidRoundCorner,
+      useGrey;
   final double fontSize;
   final String? asset;
   const KButton({
     this.buttonState = ButtonState.idle,
     this.useMidRoundCorner = true,
+    this.useCircularCorner = false,
     this.useRoundCorner = false,
     required this.buttonName,
     this.useGreen = false,
@@ -45,11 +51,13 @@ class KButton extends StatelessWidget {
                   : KColors.primaryColor,
           child: MaterialButton(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(useRoundCorner
-                  ? 15
-                  : useMidRoundCorner
-                      ? 5 //10
-                      : 4),
+              borderRadius: BorderRadius.circular(useCircularCorner
+                  ? 21
+                  : useRoundCorner
+                      ? 15
+                      : useMidRoundCorner
+                          ? 5 //10
+                          : 4),
             ),
             onPressed: onTap,
             height: height ?? 45,

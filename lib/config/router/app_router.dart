@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:trainyourbrain/domain/models/data_models/course_model.dart';
 import 'package:trainyourbrain/presentation/auth/screens/welcome_screen.dart';
 import 'package:trainyourbrain/presentation/auth/screens/signin_screen.dart';
 import 'package:trainyourbrain/presentation/auth/screens/signup_screen.dart';
+import 'package:trainyourbrain/presentation/courses/course_screen.dart';
 
 class AppRouter {
   static Route generateRoute(RouteSettings route) {
@@ -15,10 +17,12 @@ class AppRouter {
         return PageTransition(child: const SignInScreen(), type: pageStyle);
       case SignUpScreen.id:
         return PageTransition(child: const SignUpScreen(), type: pageStyle);
+      case CourseScreen.id:
+        CourseItem yut = route.arguments as CourseItem;
+        return PageTransition(
+            child: CourseScreen(course: yut), type: pageStyle);
       default:
-        return MaterialPageRoute(
-          builder: (context) => const TempError(),
-        );
+        return PageTransition(child: const TempError(), type: pageStyle);
     }
   }
 }

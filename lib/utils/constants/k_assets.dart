@@ -8,6 +8,7 @@ class KAssets {
   static const googleIcon = 'assets/imageAssets/google_icon.png';
   static const riveAssets = 'assets/riveAssets/icons.riv';
   static const riveMenu = "assets/riveAssets/menu_button.riv";
+
   // static const  = 'assets/';
   // static const  = 'assets/';
   // static const  = 'assets/';
@@ -23,5 +24,5 @@ class KAssets {
   static const errorAsset = '';
   static const closedWidget = '';
   static const errorWidget = '';
-  static const loadingGif = '';
+  static const loadingGif = 'assets/imageAssets/loading.gif';
 }
