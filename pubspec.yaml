@@ -1,0 +1,76 @@
+name: trainyourbrain
+description: A new Flutter project.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_spinkit: ^5.1.0
+  cached_network_image: ^3.2.3
+  animated_text_kit: ^4.2.2
+  intl: ^0.17.0
+  provider: ^6.0.3
+  fluttertoast: ^8.2.1
+  rive: ^0.9.1
+
+  firebase_storage: ^10.0.1
+  cloud_firestore: ^3.1.10
+  firebase_dynamic_links: ^4.3.1
+
+  shared_preferences: ^2.0.6
+  image_picker: ^0.8.2
+  url_launcher: ^6.0.9
+  open_file: ^3.1.0
+  permission_handler: ^9.2.0
+  share_plus: ^4.0.1
+  timer_count_down: ^2.2.1
+  flutter_vibrate: ^1.3.0
+  video_player: ^2.3.0
+  speech_to_text: ^5.4.3
+  avatar_glow: ^2.0.2
+  connectivity_plus: ^2.2.1
+  shimmer: ^2.0.0
+  flutter_image_compress: ^1.1.0
+  dotted_line: ^3.1.0
+  flutter_animated_dialog: ^2.0.1
+  readmore: ^2.1.0
+  uuid: ^3.0.6
+  package_info_plus: ^1.4.2
+  # device_info_plus: ^3.2.3
+  device_preview: ^1.1.0
+  page_transition: ^2.0.9
+  font_awesome_flutter: ^10.2.1
+  dotted_border: ^2.0.0+3
+  carousel_slider: ^4.1.1
+  pin_code_fields: ^7.4.0
+  flutter_calendar_carousel: ^2.3.1
+  pdf: ^3.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/imageAssets/
+    - assets/riveAssets/
+  fonts:
+    - family: EuclidBold
+      fonts:
+        - asset: fonts/eulid/Euclid Circular B Bold.ttf
+    - family: EuclidRegular
+      fonts:
+        - asset: fonts/eulid/Euclid Circular B Regular.ttf
+    - family: BalooChettan2
+      fonts:
+        - asset: fonts/BalooChettan2-Bold/BalooChettan2-Bold.ttf
+        - asset: fonts/BalooChettan2-Bold/BalooChettan2-ExtraBold.ttf
