@@ -16,7 +16,7 @@ class CourseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width * .6,
+      width: size.width * .8,
       margin: const EdgeInsets.symmetric(horizontal: 5)
           .copyWith(right: 5, bottom: 9),
       decoration: BoxDecoration(
@@ -41,11 +41,14 @@ class CourseCard extends StatelessWidget {
           const Sbh(h: 4),
           SizedBox(
             width: size.width * .59,
-            child: Text(
-              courseItem.name!,
-              overflow: TextOverflow.clip,
-              style: Kstyles.kMediumTextStyle.copyWith(
-                color: KColors.blackColor,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Text(
+                courseItem.name!,
+                overflow: TextOverflow.clip,
+                style: Kstyles.kMediumTextStyle.copyWith(
+                  color: KColors.blackColor,
+                ),
               ),
             ),
           ),
@@ -58,39 +61,44 @@ class CourseCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      courseItem.courseBy!,
-                      style: Kstyles.kVerySmallTextStyle.copyWith(
-                        color: KColors.blackColor,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Text(
+                        courseItem.courseBy!,
+                        style: Kstyles.kVerySmallTextStyle.copyWith(
+                          color: KColors.blackColor,
+                        ),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          courseItem.courseRating!.toString(),
-                          style: Kstyles.kVerySmallTextStyle.copyWith(
-                            color: Colors.amber,
-                          ),
-                        ),
-                        const Sbw(w: 3),
-                        Row(
-                          children: List.generate(
-                            courseItem.courseRating!.toInt(),
-                            (index) => const Icon(
-                              Icons.star,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Row(
+                        children: [
+                          Text(
+                            courseItem.courseRating!.toString(),
+                            style: Kstyles.kVerySmallTextStyle.copyWith(
                               color: Colors.amber,
-                              size: 13,
                             ),
                           ),
-                        ),
-                        const Sbw(w: 3),
-                        Text(
-                          "(${courseItem.numofReviews!})",
-                          style: Kstyles.kVerySmallTextStyle.copyWith(
-                            color: Colors.amber,
+                          const Sbw(w: 3),
+                          Row(
+                            children: List.generate(
+                              courseItem.courseRating!.toInt(),
+                              (index) => const Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 13,
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
+                          const Sbw(w: 3),
+                          Text(
+                            "(${courseItem.numofReviews!})",
+                            style: Kstyles.kVerySmallTextStyle
+                                .copyWith(color: Colors.amber),
+                          ),
+                        ],
+                      ),
                     )
                   ],
                 ),
@@ -115,9 +123,12 @@ class CourseCard extends StatelessWidget {
               ],
             ),
           ),
-          Text(
-            "₹${courseItem.oPrice}.00",
-            style: Kstyles.kSmallTextStyle,
+          Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: Text(
+              "₹${courseItem.oPrice}.00",
+              style: Kstyles.kSmallTextStyle,
+            ),
           ),
         ],
       ),

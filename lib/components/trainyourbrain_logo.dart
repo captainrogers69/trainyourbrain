@@ -4,7 +4,7 @@ import 'package:trainyourbrain/utils/constants/kstyles.dart';
 
 class TrainYourBrainLogo extends StatelessWidget {
   final double logoSize;
-  const TrainYourBrainLogo({this.logoSize = 30, super.key});
+  const TrainYourBrainLogo({this.logoSize = 23, super.key});
 
   @override
   Widget build(BuildContext context) {
