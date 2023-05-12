@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:trainyourbrain/components/k_cache_image.dart';
 import 'package:trainyourbrain/data/data_images.dart';
 import 'package:trainyourbrain/domain/models/data_models/course_model.dart';
 import 'package:trainyourbrain/utils/constants/kstyles.dart';
@@ -31,11 +31,12 @@ class CourseCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: witRadiusMid,
-            child: CachedNetworkImage(
-              imageUrl: dataCover,
+            child: KCacheImage(
+              image: dataCover,
               width: size.width * .6,
               fit: BoxFit.fill,
               height: 198,
+              roundCorner: 10,
             ),
           ),
           const Sbh(h: 4),
@@ -99,7 +100,7 @@ class CourseCard extends StatelessWidget {
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
                 Visibility(

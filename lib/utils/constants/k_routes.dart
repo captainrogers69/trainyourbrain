@@ -8,4 +8,5 @@ class KRoutes {
   static const accountScreen = 'accountScreen';
   static const forgotPasswordScreen = 'forgotPasswordScreen';
   static const coursesScreen = 'coursesScreen';
+  static const videosScreen = 'videosScreen';
 }
