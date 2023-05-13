@@ -53,7 +53,7 @@ class AccountScreen extends StatelessWidget {
           },
           icon: const Icon(
             Icons.logout,
-            color: KColors.whiteColor,
+            color: KColors.blackColor,
           ),
         ),
         actions: [
@@ -67,7 +67,7 @@ class AccountScreen extends StatelessWidget {
             },
             icon: const Icon(
               Icons.shopping_cart,
-              color: KColors.whiteColor,
+              color: KColors.blackColor,
             ),
           ),
         ],

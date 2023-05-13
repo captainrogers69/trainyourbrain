@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:trainyourbrain/components/k_cache_image.dart';
 import 'package:trainyourbrain/data/data_images.dart';
 import 'package:trainyourbrain/domain/models/data_models/course_model.dart';
 import 'package:trainyourbrain/utils/constants/kstyles.dart';
@@ -16,7 +16,7 @@ class CourseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width * .6,
+      width: size.width * .8,
       margin: const EdgeInsets.symmetric(horizontal: 5)
           .copyWith(right: 5, bottom: 9),
       decoration: BoxDecoration(
@@ -31,21 +31,25 @@ class CourseCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: witRadiusMid,
-            child: CachedNetworkImage(
-              imageUrl: dataCover,
+            child: KCacheImage(
+              image: dataCover,
               width: size.width * .6,
               fit: BoxFit.fill,
               height: 198,
+              roundCorner: 10,
             ),
           ),
           const Sbh(h: 4),
           SizedBox(
             width: size.width * .59,
-            child: Text(
-              courseItem.name!,
-              overflow: TextOverflow.clip,
-              style: Kstyles.kMediumTextStyle.copyWith(
-                color: KColors.blackColor,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Text(
+                courseItem.name!,
+                overflow: TextOverflow.clip,
+                style: Kstyles.kMediumTextStyle.copyWith(
+                  color: KColors.blackColor,
+                ),
               ),
             ),
           ),
@@ -58,40 +62,45 @@ class CourseCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      courseItem.courseBy!,
-                      style: Kstyles.kVerySmallTextStyle.copyWith(
-                        color: KColors.blackColor,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Text(
+                        courseItem.courseBy!,
+                        style: Kstyles.kVerySmallTextStyle.copyWith(
+                          color: KColors.blackColor,
+                        ),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          courseItem.courseRating!.toString(),
-                          style: Kstyles.kVerySmallTextStyle.copyWith(
-                            color: Colors.amber,
-                          ),
-                        ),
-                        const Sbw(w: 3),
-                        Row(
-                          children: List.generate(
-                            courseItem.courseRating!.toInt(),
-                            (index) => const Icon(
-                              Icons.star,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Row(
+                        children: [
+                          Text(
+                            courseItem.courseRating!.toString(),
+                            style: Kstyles.kVerySmallTextStyle.copyWith(
                               color: Colors.amber,
-                              size: 13,
                             ),
                           ),
-                        ),
-                        const Sbw(w: 3),
-                        Text(
-                          "(${courseItem.numofReviews!})",
-                          style: Kstyles.kVerySmallTextStyle.copyWith(
-                            color: Colors.amber,
+                          const Sbw(w: 3),
+                          Row(
+                            children: List.generate(
+                              courseItem.courseRating!.toInt(),
+                              (index) => const Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 13,
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
-                    )
+                          const Sbw(w: 3),
+                          Text(
+                            "(${courseItem.numofReviews!})",
+                            style: Kstyles.kVerySmallTextStyle
+                                .copyWith(color: Colors.amber),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
                 Visibility(
@@ -115,9 +124,12 @@ class CourseCard extends StatelessWidget {
               ],
             ),
           ),
-          Text(
-            "₹${courseItem.oPrice}.00",
-            style: Kstyles.kSmallTextStyle,
+          Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: Text(
+              "₹${courseItem.oPrice}.00",
+              style: Kstyles.kSmallTextStyle,
+            ),
           ),
         ],
       ),

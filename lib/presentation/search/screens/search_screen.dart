@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:trainyourbrain/utils/constants/k_colors.dart';
 import 'package:trainyourbrain/utils/constants/kstyles.dart';
 
-import '../../../components/appbars/search_appbar.dart';
-
 class SearchScreen extends StatefulWidget {
   final bool isFromHome;
   const SearchScreen({this.isFromHome = false, super.key});
@@ -13,14 +11,9 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  final TextEditingController _search = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SearchAppBar(
-        searchController: _search,
-        isFromHome: widget.isFromHome,
-      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
