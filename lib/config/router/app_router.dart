@@ -4,7 +4,8 @@ import 'package:trainyourbrain/domain/models/data_models/course_model.dart';
 import 'package:trainyourbrain/presentation/auth/screens/welcome_screen.dart';
 import 'package:trainyourbrain/presentation/auth/screens/signin_screen.dart';
 import 'package:trainyourbrain/presentation/auth/screens/signup_screen.dart';
-import 'package:trainyourbrain/presentation/courses/course_screen.dart';
+import 'package:trainyourbrain/presentation/courses/screen/course_screen.dart';
+import 'package:trainyourbrain/presentation/search/screens/search_screen.dart';
 
 class AppRouter {
   static Route generateRoute(RouteSettings route) {
@@ -13,6 +14,8 @@ class AppRouter {
     switch (route.name) {
       case WelcomeScreen.id:
         return PageTransition(child: const WelcomeScreen(), type: pageStyle);
+      case SearchScreen.id:
+        return PageTransition(child: const SearchScreen(), type: pageStyle);
       case SignInScreen.id:
         return PageTransition(child: const SignInScreen(), type: pageStyle);
       case SignUpScreen.id:

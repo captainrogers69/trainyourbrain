@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:trainyourbrain/domain/models/function_models/rive_model.dart';
 import 'package:trainyourbrain/presentation/account/screens/account_screen.dart';
 import 'package:trainyourbrain/presentation/bottom/compo/nav_item.dart';
+import 'package:trainyourbrain/presentation/bottom/compo/side_bar.dart';
 import 'package:trainyourbrain/presentation/home/screens/home_screen.dart';
 import 'package:trainyourbrain/presentation/providers/bottom_provider.dart';
 import 'package:trainyourbrain/presentation/search/screens/search_screen.dart';
@@ -22,14 +23,11 @@ class BottomScreen extends StatefulWidget {
 
 class _BottomScreenState extends State<BottomScreen>
     with SingleTickerProviderStateMixin {
+  final GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
   late AnimationController animationController;
   late Animation<double> scaleAnimation;
   late Animation<double> animation1;
-  final List<Widget> _pages = [
-    const HomeScreen(),
-    const SearchScreen(),
-    const AccountScreen(),
-  ];
+
   late BottomProvider _bp;
 
   @override
@@ -58,11 +56,18 @@ class _BottomScreenState extends State<BottomScreen>
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      HomeScreen(drawerKey: _drawerKey),
+      const SearchScreen(),
+      const AccountScreen(),
+    ];
     return Consumer<BottomProvider>(
       builder: (_, __, ___) {
         return Scaffold(
           extendBody: true,
           resizeToAvoidBottomInset: false,
+          key: _drawerKey,
+          drawer: const SideBar(),
           body:
               // Stack(
               //   children: [
@@ -107,7 +112,7 @@ class _BottomScreenState extends State<BottomScreen>
               //     }
               //   },
               //   child:
-              _pages[__.selectedScreen.value],
+              pages[__.selectedScreen.value],
           // ),
           //           child: IndexedStack(
           //             index: __.selectedScreen.value,

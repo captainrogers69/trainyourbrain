@@ -10,6 +10,7 @@ import 'package:trainyourbrain/components/sizing_box.dart';
 import 'package:trainyourbrain/domain/models/data_models/ebook_model.dart';
 import 'package:trainyourbrain/presentation/home/compo/ebook_card.dart';
 import 'package:trainyourbrain/presentation/providers/home_provider.dart';
+import 'package:trainyourbrain/utils/constants/container_util.dart';
 import 'package:trainyourbrain/utils/constants/k_routes.dart';
 import 'package:trainyourbrain/utils/constants/kstyles.dart';
 import 'package:vector_math/vector_math.dart' as vector;
@@ -22,7 +23,8 @@ import '../compo/video_card.dart';
 
 class HomeScreen extends StatefulWidget {
   static const id = KRoutes.homeScreen;
-  const HomeScreen({super.key});
+  final GlobalKey<ScaffoldState> drawerKey;
+  const HomeScreen({required this.drawerKey, super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -55,39 +57,48 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(builder: (_, __, ___) {
       return Scaffold(
-        appBar: const HomeAppBar(),
+        appBar: HomeAppBar(drawerKey: widget.drawerKey),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
                 children: [
                   InkWell(
                     onTap: () {},
-                    child: CarouselSlider(
-                      items: __.homeCrouselImages
-                          .map(
-                            (item) => Image.asset(
-                              item,
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                            ),
-                          )
-                          .toList(),
-                      options: CarouselOptions(
-                        scrollPhysics: const BouncingScrollPhysics(),
-                        autoPlay: true,
-                        aspectRatio: 2,
-                        viewportFraction: 1,
-                        onPageChanged: (index, reason) {
-                          Provider.of<HomeProvider>(context, listen: false)
-                              .configHomeCrousel(index);
-                        },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 8),
+                      child: CarouselSlider(
+                        items: __.homeCrouselImages
+                            .map(
+                              (item) => ClipRRect(
+                                borderRadius: witRadiusStan,
+                                child: Image.asset(
+                                  item,
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        options: CarouselOptions(
+                          scrollPhysics: const BouncingScrollPhysics(),
+                          autoPlay: true,
+                          aspectRatio: 2,
+                          viewportFraction: 0.8,
+                          enlargeCenterPage: true,
+                          onPageChanged: (index, reason) {
+                            Provider.of<HomeProvider>(context, listen: false)
+                                .configHomeCrousel(index);
+                          },
+                        ),
                       ),
                     ),
                   ),
                   Positioned(
-                    bottom: 10,
+                    bottom: 20,
                     left: 0,
                     right: 0,
                     child: Row(
@@ -122,12 +133,15 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Text(
-                  "Courses",
-                  style: Kstyles.headingText.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: KColors.blackColor,
-                    fontSize: 22,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    "Courses",
+                    style: Kstyles.headingText.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: KColors.blackColor,
+                      fontSize: 22,
+                    ),
                   ),
                 ),
               ),
@@ -172,12 +186,15 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Text(
-                  "E-Books",
-                  style: Kstyles.headingText.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: KColors.blackColor,
-                    fontSize: 22,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    "E-Books",
+                    style: Kstyles.headingText.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: KColors.blackColor,
+                      fontSize: 22,
+                    ),
                   ),
                 ),
               ),
@@ -199,12 +216,15 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Text(
-                  "Videos",
-                  style: Kstyles.kHeadingTextStyle.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: KColors.blackColor,
-                    fontSize: 22,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    "Videos",
+                    style: Kstyles.kHeadingTextStyle.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: KColors.blackColor,
+                      fontSize: 22,
+                    ),
                   ),
                 ),
               ),
@@ -226,12 +246,15 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Text(
-                  "Continue",
-                  style: Kstyles.kHeadingTextStyle.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: KColors.blackColor,
-                    fontSize: 22,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    "Continue watching",
+                    style: Kstyles.kHeadingTextStyle.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: KColors.blackColor,
+                      fontSize: 22,
+                    ),
                   ),
                 ),
               ),

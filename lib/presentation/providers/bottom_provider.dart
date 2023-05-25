@@ -132,21 +132,21 @@ class BottomProvider with ChangeNotifier {
   ];
 
   List<Menu> sidebarMenus = [
-    Menu(
-      title: BottomStates.home.name,
-      rive: RiveModel(
-          src: KAssets.riveAssets,
-          artboard: "HOME",
-          stateMachineName: "HOME_interactivity"),
-    ),
-    Menu(
-      title: BottomStates.search.name,
-      rive: RiveModel(
-        src: KAssets.riveAssets,
-        artboard: "SEARCH",
-        stateMachineName: "SEARCH_Interactivity",
-      ),
-    ),
+    // Menu(
+    //   title: BottomStates.home.name,
+    //   rive: RiveModel(
+    //       src: KAssets.riveAssets,
+    //       artboard: "HOME",
+    //       stateMachineName: "HOME_interactivity"),
+    // ),
+    // Menu(
+    //   title: BottomStates.search.name,
+    //   rive: RiveModel(
+    //     src: KAssets.riveAssets,
+    //     artboard: "SEARCH",
+    //     stateMachineName: "SEARCH_Interactivity",
+    //   ),
+    // ),
     Menu(
       title: "Favorites",
       rive: RiveModel(

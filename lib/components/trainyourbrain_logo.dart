@@ -21,7 +21,7 @@ class TrainYourBrainLogo extends StatelessWidget {
                 style: Kstyles.kHeadingTextStyle.copyWith(
                   fontSize: logoSize,
                   fontFamily: 'EuclidBold',
-                  color: KColors.blackColor,
+                  color: KColors.whiteColor,
                 ),
               ),
               TextSpan(
@@ -29,7 +29,7 @@ class TrainYourBrainLogo extends StatelessWidget {
                 style: Kstyles.kHeadingTextStyle.copyWith(
                   fontSize: logoSize,
                   fontFamily: 'EuclidBold',
-                  color: KColors.primaryColor,
+                  color: KColors.whiteColor,
                 ),
               ),
               TextSpan(
@@ -37,7 +37,7 @@ class TrainYourBrainLogo extends StatelessWidget {
                 style: Kstyles.kHeadingTextStyle.copyWith(
                   fontSize: logoSize,
                   fontFamily: 'EuclidBold',
-                  color: KColors.blackColor,
+                  color: KColors.whiteColor,
                 ),
               ),
             ],

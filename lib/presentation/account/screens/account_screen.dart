@@ -98,9 +98,9 @@ class AccountScreen extends StatelessWidget {
               ],
             ),
             const Sbh(h: 8),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   "myyadavmayank1998@gmail.com",
                   style: Kstyles.kSmallTextStyle,

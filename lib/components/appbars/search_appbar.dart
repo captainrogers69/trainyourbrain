@@ -5,7 +5,7 @@ import 'package:trainyourbrain/utils/constants/kstyles.dart';
 import '../../utils/responsive/size_config.dart';
 import '../sizing_box.dart';
 
-class SearchAppBar extends StatelessWidget with PreferredSizeWidget {
+class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   final TextEditingController searchController;
   const SearchAppBar({
     required this.searchController,

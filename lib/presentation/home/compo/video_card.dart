@@ -95,11 +95,11 @@ class VideoCard extends StatelessWidget {
               const Sbh(h: 4),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 198,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Icon(
                   Icons.arrow_circle_right_sharp,
                   color: KColors.whiteColor,
