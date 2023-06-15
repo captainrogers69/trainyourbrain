@@ -16,9 +16,7 @@ class CourseCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width * .8,
-      margin: const EdgeInsets.symmetric(horizontal: 5)
-          .copyWith(right: 5, bottom: 9),
+      margin: const EdgeInsets.only(bottom: 9),
       decoration: BoxDecoration(
         color: KColors.whiteColor,
         boxShadow: witBoxShadow,
@@ -33,7 +31,7 @@ class CourseCard extends StatelessWidget {
             borderRadius: witRadiusMid,
             child: KCacheImage(
               image: dataCover,
-              width: size.width * .6,
+              width: size.width * .5,
               fit: BoxFit.fill,
               height: 198,
               roundCorner: 10,

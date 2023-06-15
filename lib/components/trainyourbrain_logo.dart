@@ -12,35 +12,37 @@ class TrainYourBrainLogo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Spacer(),
-        RichText(
-          textAlign: TextAlign.center,
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: 'Train',
-                style: Kstyles.kHeadingTextStyle.copyWith(
-                  fontSize: logoSize,
-                  fontFamily: 'EuclidBold',
-                  color: KColors.blackColor,
+        Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Train',
+                  style: Kstyles.kHeadingTextStyle.copyWith(
+                    fontSize: logoSize,
+                    fontFamily: 'EuclidBold',
+                    color: KColors.whiteColor,
+                  ),
                 ),
-              ),
-              TextSpan(
-                text: 'Your',
-                style: Kstyles.kHeadingTextStyle.copyWith(
-                  fontSize: logoSize,
-                  fontFamily: 'EuclidBold',
-                  color: KColors.primaryColor,
+                TextSpan(
+                  text: 'Your',
+                  style: Kstyles.kHeadingTextStyle.copyWith(
+                    fontSize: logoSize,
+                    fontFamily: 'EuclidBold',
+                    color: KColors.whiteColor,
+                  ),
                 ),
-              ),
-              TextSpan(
-                text: 'Brain',
-                style: Kstyles.kHeadingTextStyle.copyWith(
-                  fontSize: logoSize,
-                  fontFamily: 'EuclidBold',
-                  color: KColors.blackColor,
+                TextSpan(
+                  text: 'Brain',
+                  style: Kstyles.kHeadingTextStyle.copyWith(
+                    fontSize: logoSize,
+                    fontFamily: 'EuclidBold',
+                    color: KColors.whiteColor,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         const Spacer(),

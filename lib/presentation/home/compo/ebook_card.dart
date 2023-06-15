@@ -16,15 +16,14 @@ class EbookCard extends StatelessWidget {
       child: Container(
         width: size.width * .40,
         decoration: BoxDecoration(
-          color: Colors.purple[600],
-        ),
+            color: Colors.purple[600], borderRadius: BorderRadius.circular(20)),
         child: Center(
           child: KCacheImage(
             image: dataCover,
             width: size.width * .6,
             height: 198,
-            fit: BoxFit.fill,
-            roundCorner: 1,
+            fit: BoxFit.cover,
+            roundCorner: 20,
           ),
         ),
       ),

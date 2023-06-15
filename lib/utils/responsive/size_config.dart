@@ -39,7 +39,7 @@ double getHorizontalSize(double px) => px * (size.width / 375);
 /// This method is used to set padding/margin (for the top and bottom side)
 /// and height of the screen or widget according to the Viewport height.
 double getVerticalSize(double px) {
-  num statusBar = MediaQueryData.fromWindow(window).viewPadding.top;
+  num statusBar = MediaQueryData.fromView(window).viewPadding.top;
   num screenHeight = size.height - statusBar;
   return px * (screenHeight / 812);
 }

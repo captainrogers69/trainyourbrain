@@ -5,13 +5,13 @@ import 'package:trainyourbrain/components/k_cache_image.dart';
 import 'package:trainyourbrain/data/data_images.dart';
 import 'package:trainyourbrain/domain/models/data_models/course_model.dart';
 
-import '../../components/buttons/k_border_button.dart';
-import '../../components/sizing_box.dart';
-import '../../utils/constants/container_util.dart';
-import '../../utils/constants/k_colors.dart';
-import '../../utils/constants/k_routes.dart';
-import '../../utils/constants/kstyles.dart';
-import '../../utils/responsive/size_config.dart';
+import '../../../components/buttons/k_border_button.dart';
+import '../../../components/sizing_box.dart';
+import '../../../utils/constants/container_util.dart';
+import '../../../utils/constants/k_colors.dart';
+import '../../../utils/constants/k_routes.dart';
+import '../../../utils/constants/kstyles.dart';
+import '../../../utils/responsive/size_config.dart';
 
 class CourseScreen extends StatelessWidget {
   final CourseItem course;
@@ -60,9 +60,9 @@ class CourseScreen extends StatelessWidget {
                   SizedBox(
                     width: size.width,
                     height: 200,
-                    child: Column(
+                    child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Spacer(flex: 4),
                         Icon(
                           FontAwesomeIcons.play,

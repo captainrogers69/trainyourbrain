@@ -3,32 +3,35 @@ import 'package:flutter/scheduler.dart';
 import 'package:rive/rive.dart';
 import 'package:trainyourbrain/domain/models/function_models/rive_model.dart';
 import 'package:trainyourbrain/utils/constants/k_assets.dart';
+import 'package:trainyourbrain/utils/constants/k_routes.dart';
+
+import '../../config/router/nav_service.dart';
 
 enum BottomStates { home, search, user }
 
 class BottomProvider with ChangeNotifier {
   ValueNotifier<Menu> _selectedBottom = ValueNotifier(
     Menu(
-      title: "Home",
-      rive: RiveModel(
-        src: KAssets.riveAssets,
-        artboard: "HOME",
-        stateMachineName: "HOME_interactivity",
-      ),
-    ),
+        title: "Home",
+        rive: RiveModel(
+          src: KAssets.riveAssets,
+          artboard: "HOME",
+          stateMachineName: "HOME_interactivity",
+        ),
+        onTap: () {}),
   );
   ValueNotifier<Menu> get selectedBottom => _selectedBottom;
 
   void configSelectedBottom(Menu vvc) {
     _selectedBottom = ValueNotifier(
       Menu(
-        title: BottomStates.home.name,
-        rive: RiveModel(
-          src: KAssets.riveAssets,
-          artboard: "HOME",
-          stateMachineName: "HOME_interactivity",
-        ),
-      ),
+          title: BottomStates.home.name,
+          rive: RiveModel(
+            src: KAssets.riveAssets,
+            artboard: "HOME",
+            stateMachineName: "HOME_interactivity",
+          ),
+          onTap: () {}),
     );
     _selectedBottom.value = vvc;
     configScreen(vvc);
@@ -86,13 +89,13 @@ class BottomProvider with ChangeNotifier {
   }
 
   Menu _selectedSideMenu = Menu(
-    title: BottomStates.home.name,
-    rive: RiveModel(
-      src: KAssets.riveAssets,
-      artboard: "HOME",
-      stateMachineName: "HOME_interactivity",
-    ),
-  );
+      title: BottomStates.home.name,
+      rive: RiveModel(
+        src: KAssets.riveAssets,
+        artboard: "HOME",
+        stateMachineName: "HOME_interactivity",
+      ),
+      onTap: () {});
   Menu get selectedSideMenu => _selectedSideMenu;
 
   void configSideMenu(Menu vvc) {
@@ -106,80 +109,108 @@ class BottomProvider with ChangeNotifier {
 
   final List<Menu> bottomNavItems = [
     Menu(
-      title: BottomStates.home.name,
-      rive: RiveModel(
-        src: KAssets.riveAssets,
-        artboard: "HOME",
-        stateMachineName: "HOME_interactivity",
-      ),
-    ),
+        title: BottomStates.home.name,
+        rive: RiveModel(
+          src: KAssets.riveAssets,
+          artboard: "HOME",
+          stateMachineName: "HOME_interactivity",
+        ),
+        onTap: () {}),
     Menu(
-      title: BottomStates.search.name,
-      rive: RiveModel(
-        src: KAssets.riveAssets,
-        artboard: "SEARCH",
-        stateMachineName: "SEARCH_Interactivity",
-      ),
-    ),
+        title: BottomStates.search.name,
+        rive: RiveModel(
+          src: KAssets.riveAssets,
+          artboard: "SEARCH",
+          stateMachineName: "SEARCH_Interactivity",
+        ),
+        onTap: () {}),
     Menu(
-      title: BottomStates.user.name,
-      rive: RiveModel(
-        src: KAssets.riveAssets,
-        artboard: "USER",
-        stateMachineName: "USER_Interactivity",
-      ),
-    ),
+        title: BottomStates.user.name,
+        rive: RiveModel(
+          src: KAssets.riveAssets,
+          artboard: "USER",
+          stateMachineName: "USER_Interactivity",
+        ),
+        onTap: () {}),
   ];
 
   List<Menu> sidebarMenus = [
+    // Menu(
+    //   title: BottomStates.home.name,
+    //   rive: RiveModel(
+    //       src: KAssets.riveAssets,
+    //       artboard: "HOME",
+    //       stateMachineName: "HOME_interactivity"),
+    // ),
+    // Menu(
+    //   title: BottomStates.search.name,
+    //   rive: RiveModel(
+    //     src: KAssets.riveAssets,
+    //     artboard: "SEARCH",
+    //     stateMachineName: "SEARCH_Interactivity",
+    //   ),
+    // ),
     Menu(
-      title: BottomStates.home.name,
-      rive: RiveModel(
+        title: "Favorites",
+        rive: RiveModel(
           src: KAssets.riveAssets,
-          artboard: "HOME",
-          stateMachineName: "HOME_interactivity"),
-    ),
+          artboard: "LIKE/STAR",
+          stateMachineName: "STAR_Interactivity",
+        ),
+        onTap: () {}),
     Menu(
-      title: BottomStates.search.name,
-      rive: RiveModel(
-        src: KAssets.riveAssets,
-        artboard: "SEARCH",
-        stateMachineName: "SEARCH_Interactivity",
-      ),
-    ),
-    Menu(
-      title: "Favorites",
-      rive: RiveModel(
-        src: KAssets.riveAssets,
-        artboard: "LIKE/STAR",
-        stateMachineName: "STAR_Interactivity",
-      ),
-    ),
-    Menu(
-      title: "Help",
-      rive: RiveModel(
-        src: KAssets.riveAssets,
-        artboard: "CHAT",
-        stateMachineName: "CHAT_Interactivity",
-      ),
-    ),
+        title: "Help",
+        rive: RiveModel(
+          src: KAssets.riveAssets,
+          artboard: "CHAT",
+          stateMachineName: "CHAT_Interactivity",
+        ),
+        onTap: () {}),
   ];
   List<Menu> sidebarMenus2 = [
     Menu(
-      title: "History",
-      rive: RiveModel(
-        src: KAssets.riveAssets,
-        artboard: "TIMER",
-        stateMachineName: "TIMER_Interactivity",
-      ),
-    ),
+        title: "History",
+        rive: RiveModel(
+          src: KAssets.riveAssets,
+          artboard: "TIMER",
+          stateMachineName: "TIMER_Interactivity",
+        ),
+        onTap: () {}),
     Menu(
-      title: "Notifications",
-      rive: RiveModel(
-        src: KAssets.riveAssets,
-        artboard: "BELL",
-        stateMachineName: "BELL_Interactivity",
-      ),
-    ),
+        title: "Notifications",
+        rive: RiveModel(
+          src: KAssets.riveAssets,
+          artboard: "BELL",
+          stateMachineName: "BELL_Interactivity",
+        ),
+        onTap: () {
+          Navigate.instance.navigateTo(
+            KRoutes.notificationScreen,
+          );
+        }),
+    Menu(
+        title: "Feedback",
+        rive: RiveModel(
+          src: KAssets.riveAssets,
+          artboard: "BELL",
+          stateMachineName: "BELL_Interactivity",
+        ),
+        onTap: () {
+          Navigate.instance.navigateTo(
+            KRoutes.feedbackScreen,
+          );
+        }),
+    Menu(
+        title: "Privacy",
+        rive: RiveModel(
+          src: KAssets.riveAssets,
+          artboard: "BELL",
+          stateMachineName: "BELL_Interactivity",
+        ),
+        onTap: () {
+          Navigate.instance.navigateTo(
+            KRoutes.feedbackScreen,
+          );
+        }),
   ];
 }

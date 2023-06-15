@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:trainyourbrain/utils/constants/k_colors.dart';
+import 'package:trainyourbrain/utils/constants/k_routes.dart';
 import 'package:trainyourbrain/utils/constants/kstyles.dart';
 
 class SearchScreen extends StatefulWidget {
+  static const id = KRoutes.searchScreen;
   final bool isFromHome;
   const SearchScreen({this.isFromHome = false, super.key});
 
@@ -14,6 +16,14 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: const BackButton(),
+        title: const Text(
+          "Search",
+          style: Kstyles.kAppBarTextStyle,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
