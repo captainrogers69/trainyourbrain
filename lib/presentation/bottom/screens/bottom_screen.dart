@@ -67,7 +67,7 @@ class _BottomScreenState extends State<BottomScreen>
           extendBody: true,
           resizeToAvoidBottomInset: false,
           key: _drawerKey,
-          drawer: const SideBar(),
+          drawer: SideBar(drawerKey: _drawerKey),
           body:
               // Stack(
               //   children: [

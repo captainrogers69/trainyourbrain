@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:trainyourbrain/components/k_cache_image.dart';
+import 'package:trainyourbrain/components/sizing_box.dart';
+import 'package:trainyourbrain/data/data_images.dart';
 import 'package:trainyourbrain/presentation/bottom/compo/side_menu.dart';
 import 'package:trainyourbrain/presentation/providers/bottom_provider.dart';
 import 'package:trainyourbrain/utils/constants/k_colors.dart';
@@ -7,7 +10,8 @@ import 'package:trainyourbrain/utils/constants/kstyles.dart';
 import 'package:trainyourbrain/utils/rive/rive_utils.dart';
 
 class SideBar extends StatefulWidget {
-  const SideBar({super.key});
+  final GlobalKey<ScaffoldState> drawerKey;
+  const SideBar({required this.drawerKey, super.key});
 
   @override
   State<SideBar> createState() => _SideBarState();
@@ -31,10 +35,10 @@ class _SideBarState extends State<SideBar> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const DrawerHeader(
+              DrawerHeader(
                 margin: EdgeInsets.zero,
                 padding: EdgeInsets.zero,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: NetworkImage(
@@ -44,25 +48,25 @@ class _SideBarState extends State<SideBar> {
                 child: Row(
                   children: [
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(bottom: 20, left: 20),
+                          padding: const EdgeInsets.only(top: 50, left: 20),
                           child: CircleAvatar(
-                            backgroundColor: KColors.whiteColor,
-                            backgroundImage:
-                                AssetImage('assets/imageAssets/user.png'),
-                            radius: 40,
+                            child: KCacheImage(
+                              image: dataUser,
+                            ),
                           ),
                         ),
-                        Padding(
+                        const Sbh(h: 10),
+                        const Padding(
                           padding: EdgeInsets.only(left: 20),
                           child: Text(
                             'Mayank Agarwal',
                             style: Kstyles.kMediumTextStyle,
                           ),
                         ),
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(left: 20),
                           child: Text(
                             'rmudit5@gmail.com',
@@ -90,9 +94,10 @@ class _SideBarState extends State<SideBar> {
                       menu: menu,
                       selectedMenu: __.selectedSideMenu,
                       press: () {
-                        RiveUtils.chnageSMIBoolState(menu.rive.status!);
-                        Provider.of<BottomProvider>(context, listen: false)
-                            .configSideMenu(menu);
+                        // RiveUtils.chnageSMIBoolState(menu.rive.status!);
+                        // Provider.of<BottomProvider>(context, listen: false)
+                        //     .configSideMenu(menu);
+                        widget.drawerKey.currentState!.closeDrawer();
                       },
                       riveOnInit: (artboard) {
                         menu.rive.status = RiveUtils.getRiveInput(
@@ -119,9 +124,11 @@ class _SideBarState extends State<SideBar> {
                       menu: menu,
                       selectedMenu: __.selectedSideMenu,
                       press: () {
-                        RiveUtils.chnageSMIBoolState(menu.rive.status!);
-                        Provider.of<BottomProvider>(context, listen: false)
-                            .configSideMenu(menu);
+                        // RiveUtils.chnageSMIBoolState(menu.rive.status!);
+                        // Provider.of<BottomProvider>(context, listen: false)
+                        //     .configSideMenu(menu);
+                        widget.drawerKey.currentState!.closeDrawer();
+                        menu.onTap!();
                       },
                       riveOnInit: (artboard) {
                         menu.rive.status = RiveUtils.getRiveInput(

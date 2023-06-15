@@ -20,8 +20,10 @@ class RiveModel {
 class Menu {
   final String title;
   final RiveModel rive;
+  final void Function()? onTap;
   Menu({
     required this.title,
     required this.rive,
+    required this.onTap,
   });
 }

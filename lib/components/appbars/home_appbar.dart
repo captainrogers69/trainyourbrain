@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trainyourbrain/components/trainyourbrain_logo.dart';
+import 'package:trainyourbrain/presentation/home/compo/notification_compo.dart';
 import 'package:trainyourbrain/utils/responsive/size_config.dart';
 
 import '../../config/router/nav_service.dart';
@@ -28,7 +29,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
       backgroundColor: KColors.primaryColor,
       automaticallyImplyLeading: false,
       title: const Padding(
-        padding: EdgeInsets.only(right: 50),
+        padding: EdgeInsets.only(right: 35),
         child: TrainYourBrainLogo(),
       ),
       leading: RotatedBox(
@@ -43,6 +44,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
           ),
         ),
       ),
+      actions: const [NotificationCompo(length: 5)],
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(AppBar().preferredSize.height),
         child: Padding(

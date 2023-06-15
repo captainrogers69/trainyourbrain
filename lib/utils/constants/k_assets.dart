@@ -23,6 +23,9 @@ class KAssets {
   // static const  = 'assets/';
   static const errorAsset = '';
   static const closedWidget = '';
-  static const errorWidget = '';
+  static const errorWidget = 'assets/imageAssets/error.png';
   static const loadingGif = 'assets/imageAssets/loading.gif';
+  static const notification = 'assets/imageAssets/notification.png';
+  static const addPhoto = 'assets/imageAssets/add-photo.png';
+  static const camera = 'assets/imageAssets/camera.png';
 }
